@@ -19,12 +19,12 @@ const scraper = async () => {
     allAuthors.push(author);
 
     if (i === 0) {
-      fs.writeFileSync("../JsonFile/Scopus_Author_latest.json", JSON.stringify([author], null, 2));
+      fs.writeFileSync("./JsonFile/Scopus_Author_latest.json", JSON.stringify([author], null, 2));
     } else {
       const rawData = fs.readFileSync('../JsonFile/Scopus_Author_latest.json');
       const data = JSON.parse(rawData);
       data.push(author);
-      fs.writeFileSync('../JsonFile/Scopus_Author_latest.json', JSON.stringify(data, null, 2));
+      fs.writeFileSync('./JsonFile/Scopus_Author_latest.json', JSON.stringify(data, null, 2));
     }
 
     await browser.close();
